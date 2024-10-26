@@ -1,0 +1,39 @@
+#  You can now specify one secret for a network of clients.
+#  When a client request comes in, the BEST match is chosen.
+#  i.e. The entry from the smallest possible network.
+#
+client private-network-1 {
+        ipaddr          = 192.168.18.0/24
+        secret          = testing123
+        shortname       = myclient
+        nas_type        = other
+}
+
+client test_router {
+        ipaddr  = 192.168.18.130
+        secret = testing123
+        shortname = myclient_router
+        nas_type = other
+}
+
+client hotspot_network{
+    ipaddr = 192.168.2.0/24
+    secret = testing123
+    shortname = mikrotik-hotspot
+    nas_type = other
+    #require_message_authenticator = no
+}
+
+client hotspot {
+    ipaddr = 192.168.2.1
+    secret = testing123
+    shortname = mikrotik-hotspot
+    nas_type = other
+    #require_message_authenticator = no
+}
+
+client any {
+    ipaddr = 0.0.0.0/0
+    secret = testing123
+    shortname = other
+}
